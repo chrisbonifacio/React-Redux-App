@@ -7,7 +7,7 @@ import AnimeCard from "../AnimeCard"
 function TopAnime(props) {
     
     useEffect(() => {
-        setTopAnime(props.getTopAnime())
+        props.getTopAnime()
     }, [])
     
     return ( 
@@ -17,9 +17,12 @@ function TopAnime(props) {
                 {/* Props: image_url, title, rank */}
                 {/* Search for recent anime in year 2019 */}
                 {/* Sort by rank */}
-                {props.topAnime.slice(0,10).map((anime, index) => 
-                    <AnimeCard key={index} anime={anime}/>
-                )}                
+                {
+                    props.isFetching 
+                    ? 'Loading...'
+                    : props.topAnime.slice(0,10).map((anime, index) => 
+                        <AnimeCard key={index} anime={anime}/>
+                    )}                
             </div>
         </div>
     )
@@ -27,8 +30,9 @@ function TopAnime(props) {
 
 function mapStateToProps(state) {
     return {
+        isFetching: state.homePage.isFetching,
         topAnime: state.homePage.topAnime
     }
 }
 
-export default connect(mapStatetoProps, {getTopAnime})(TopAnime);
+export default connect(mapStateToProps, {getTopAnime})(TopAnime);
