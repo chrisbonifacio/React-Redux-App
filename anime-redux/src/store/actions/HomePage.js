@@ -6,11 +6,10 @@ export const getTopAnime = () => dispatch => {
     dispatch({ type: GET_TOP_ANIME_START })
     fetch("https://api.jikan.moe/v3/top/anime")
         .then(res => {
-            dispatch({ type: GET_TOP_ANIME_SUCCESS })
             return res.json()
         })
         .then(parsedRes => {
-            console.log(parsedRes.top)
+            dispatch({ type: GET_TOP_ANIME_SUCCESS, payload: parsedRes.top })
         })
         .catch(err => {
             dispatch({ type: GET_TOP_ANIME_FAILURE })
