@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function AnimeCard() {
+export default function AnimeCard({anime}) {
     return (
         <div className="Anime-Card">
-            <img src=""/>
-            <h2>Anime Name</h2>
-            <p>Genre</p>
+            <img src={anime.image_url}/>
+            <h2>{anime.title}</h2>
+            {anime.rank && <p>Rank: {anime.rank}</p>}
         </div>
     )
 }
