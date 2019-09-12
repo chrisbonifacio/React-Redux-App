@@ -21,7 +21,7 @@ function TopAnime(props) {
                     props.isFetching 
                     ? 'Loading...'
                     : props.topAnime.slice(0,10).map((anime, index) => 
-                        <AnimeCard key={index} anime={anime}/>
+                        <AnimeCard key={anime.mal_id} anime={anime}/>
                     )}                
             </div>
         </div>
