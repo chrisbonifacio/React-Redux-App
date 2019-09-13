@@ -8,7 +8,7 @@ import {
 } from "../actions"
 
 export const initialStateForHomePage = {
-  fetching: false,
+  isFetching: false,
   topAnime: [],
   upcomingAnime: [],
   animeByGenre: []
@@ -40,7 +40,7 @@ export function homePageReducer(state = initialStateForHomePage, action) {
       return {
         ...state,
         fetching: false,
-        upcomingAnime: [...state, action.payload]
+        upcomingAnime: state.upcomingAnime.concat(action.payload)
       }
     case GET_UPCOMING_ANIME_FAILURE:
       return { ...state, fetching: false }
