@@ -28,7 +28,7 @@ export const getUpcomingAnime = () => dispatch => {
       return res.json()
     })
     .then(parsedRes => {
-      dispatch({ type: GET_UPCOMING_ANIME_SUCCESS, payload: parsedRes })
+      dispatch({ type: GET_UPCOMING_ANIME_SUCCESS, payload: parsedRes.top })
     })
     .catch(err => {
       dispatch({ type: GET_UPCOMING_ANIME_FAILURE })
