@@ -9,10 +9,13 @@ $nav-color: #141c25;
   box-sizing: border-box;
 }
 
+body {
+  background: $black;
+}
+
 .App {
   display: flex;
   flex-direction: column;
-  background: $black;
   text-align: center;
 
   h1,
