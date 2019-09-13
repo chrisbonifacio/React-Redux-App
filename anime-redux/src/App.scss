@@ -1,0 +1,97 @@
+// Colors
+$black: #0d171f;
+$text-color: #f6fafd;
+$nav-color: #141c25;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  background: $black;
+  text-align: center;
+
+  h1,
+  h2,
+  h3,
+  p {
+    color: $text-color;
+    font-weight: 500;
+  }
+
+  h1 {
+    text-align: left;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.Nav-Bar {
+  background: $nav-color;
+  margin: 0 0 1.5rem;
+
+  .container {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: space-between;
+  }
+
+  a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $text-color;
+    font-weight: 700;
+  }
+}
+
+.Grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .Anime-Card {
+    width: 25%;
+    min-width: 225px;
+  }
+}
+
+.Anime-Card {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  max-width: 225px;
+  margin: 2rem 0;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  img {
+    width: 100%;
+    min-width: 225px;
+    max-height: 319px;
+    margin: 0 0 0.5rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
