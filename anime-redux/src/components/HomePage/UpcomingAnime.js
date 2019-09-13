@@ -10,7 +10,7 @@ function UpcomingAnime(props) {
   }, [])
 
   return (
-    <div className="UpcomingAnime">
+    <div className="Upcoming-Anime">
       <h1>Upcoming Anime</h1>
       <div className="Grid">
         {props.isFetching
