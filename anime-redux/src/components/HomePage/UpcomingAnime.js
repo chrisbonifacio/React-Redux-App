@@ -6,23 +6,31 @@ import AnimeCard from "../AnimeCard"
 
 function UpcomingAnime(props) {
   useEffect(() => {
-    getUpcomingAnime()
+    props.getUpcomingAnime()
   }, [])
 
   return (
     <div className="UpcomingAnime">
       <h1>Upcoming Anime</h1>
+      <div className="Grid">
+        {props.isFetching
+          ? "is Loading..."
+          : props.upcomingAnime.slice(0, 10).map(anime => {
+              return <AnimeCard key={anime.mal_id} anime={anime} />
+            })}
+      </div>
     </div>
   )
 }
 
 const mapStateToProps = state => {
   return {
-    state: state
+    isFetching: state.homePage.isFetching,
+    upcomingAnime: state.homePage.upcomingAnime
   }
 }
 
 export default connect(
-  null,
+  mapStateToProps,
   { getUpcomingAnime }
 )(UpcomingAnime)
